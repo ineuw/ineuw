@@ -1,4 +1,4 @@
 ---
-title: Welcome to my blog
+title: LINUX AND THE FREE SOFTWARE ENVIRONMENT DISCUSSIONS BY THE RETIRED
 ---
 
