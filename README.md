@@ -1,7 +1,10 @@
 I decided to create this site, to discuss information technology topics of common interest, and how they enhance or degrade the computing experience.
 
 Among my interests related to computing are:
-* User interaction with applications
-* Simplest approach to completing tasks.
-* Firefox spellcheck is inactive at 2023-07-13 02:45 - Editing ineuw/README.md at main · ineuw/ineuw · GitHub — Mozilla Firefox
-# 2023-07-16 00:55 - Editing ineuw/README.md at main · ineuw/ineuw — Mozilla Firefox
+* Writing instructions without paternalization and mansplaining.
+* to simplify user interaction with applications.
+* Suggest eliminatation of super
+* Contrbute Autokey Pyhton scripts for general use.
+* List my scripts for Wikisource text editing
+* 
+signed 2023-07-16 00:56 - ineuw/README.md at main · ineuw/ineuw — Mozilla Firefox
