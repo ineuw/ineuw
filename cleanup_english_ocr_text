@@ -1,5 +1,5 @@
-# [ alt + , ]	clean up a page of OCR generated text
-# 230902  - 6:38 pm. - alt-,-clean-text.py
+# [ alt + , ]	clean up a page of OCR generated text 
+# 231009_0323 - AutoKey - alt--clean-text.py
 
 clipboard.fill_clipboard('')
 time.sleep(0.1)
@@ -13,138 +13,172 @@ time.sleep(0.1)
 keyboard.send_keys(selectall_)
 time.sleep(0.1)
 
+keyboard.send_keys(copy_)
+time.sleep(0.1)
+
 text_ = clipboard.get_selection()
 time.sleep(0.1)
 
 text_ = text_.strip()
 time.sleep(0.1)
 
-# begin formatting by looping 4 times to correct OCR errors
-i = 1
-while i < 8:
-    ### beginning
+# replace all quotes to standard English quotations.
+text_ = text_.replace('\u02B9', '\u0027')
+time.sleep(0.1)
 
-    # replace all quotes to standard English quotations.
-    text_ = text_.replace('\u02B9', '\u0027')
+text_ = text_.replace('\u02BA', '\u0027')
+time.sleep(0.1)
 
-    text_ = text_.replace('\u02BA', '\u0022')
+text_ = text_.replace('\u00AB', '\u0027')
+time.sleep(0.1)
 
-    text_ = text_.replace('\u00AB', '\u0022')
+text_ = text_.replace('\u00BB', '\u0027')
+time.sleep(0.1)
 
-    text_ = text_.replace('\u00BB', '\u0022')
+text_ = text_.replace('\u02Bc', '\u0027')
+time.sleep(0.1)
 
-    text_ = text_.replace('\u02Bc', '\u0027')
+# replace double quote followed and a single quote, with a double quote
+text_ = text_.replace('\u0022' + '\u0027', '\u0022')
+time.sleep(0.1)
 
-    # replace double quote followed and a single quote, with a double quote
-    text_ = text_.replace('\u0022' + '\u0027', '\u0022')
+# replace opening slanted double grave accent
+text_ = text_.replace('“', '"')
+time.sleep(0.1)
 
-    # replace opening slanted double grave accent
-    text_ = text_.replace('“', '"')
+# replace closing slanted double acute accentchr(0x02DD) chr(0x0022)
+text_ = text_.replace('”', '"')
+time.sleep(0.1)
 
-    # replace closing slanted double acute accent	chr(0x02DD) chr(0x0022)
-    text_ = text_.replace('”', '"')
+# replace opening left slanted single quote
+text_ = text_.replace('‛', "'")
+time.sleep(0.1)
 
-    # replace opening left slanted single quote
-    text_ = text_.replace('‛', "'")
+# replace opening right slanted single quote
+text_ = text_.replace('‘', "'")
+time.sleep(0.1)
 
-    # replace opening right slanted single quote
-    text_ = text_.replace('‘', "'")
+# replace closing slanted single quote
+text_ = text_.replace('’', "'")
+time.sleep(0.1)
 
-    # replace closing slanted single quote
-    text_ = text_.replace('’', "'")
+# replace opening slanted double grave accent
+text_ = text_.replace('“', '"')
+time.sleep(0.1)
 
-    # replace opening slanted double grave accent
-    text_ = text_.replace('“', '"')
+# replace closing slanted double acute accent chr(0x02DD) chr(0x0022)
+text_ = text_.replace('”', '"')
+time.sleep(0.1)
 
-    # replace closing slanted double acute accent chr(0x02DD) chr(0x0022)
-    text_ = text_.replace('”', '"')
+# replace space and two single quotes to space and a double quote
+# text_ = text_.replace(' ' + '\u0027' + '\u0027', ' ' + '\u0022')
+# time.sleep(0.1)
 
-    # replace space and two single quotes to space and a double quote
-    # text_ = text_.replace(' ' + '\u0027' + '\u0027', ' ' + '\u0022')
+# replace space and two single quotes and space to space and double quote
+text_ = text_.replace(' ' + '\u0027' + '\u0027' + ' ', ' ' + '\u0022')
+time.sleep(0.1)
 
-    # replace space and two single quotes and space to space and double quote
-    text_ = text_.replace(' ' + '\u0027' + '\u0027' + ' ', ' ' + '\u0022')
+# suffrage replace floating double quote to space and double quote
+text_ = text_.replace(' ' + '\u0022' + ' ', ' ' + '\u0022')
+time.sleep(0.1)
 
-    # suffrage replace floating double quote to space and double quote
-    text_ = text_.replace(' ' + '\u0022' + ' ', ' ' + '\u0022')
+# replace ligature ﬁ with fi
+text_ = text_.replace('ﬁ', 'fi')
+time.sleep(0.1)
 
-    ### end
+# remove space preceding a comma
+text_ = text_.replace(' ,', ',')
+time.sleep(0.1)
 
-    # replace ligature ﬁ with fi
-    text_ = text_.replace('ﬁ', 'fi')
+# remove space preceding a period
+text_ = text_.replace(' \.', '.')
+time.sleep(0.1)
 
-    # remove space preceding a comma
-    text_ = text_.replace(' ,', ',')
+# remove space preceding a semicolon
+text_ = text_.replace(' ;', ';')
+time.sleep(0.1)
 
-    # remove space preceding a period
-    text_ = text_.replace(' \.', '.')
+# remove space preceding a colon
+text_ = text_.replace(' :', ':')
+time.sleep(0.1)
 
-    # remove space preceding a semicolon
-    text_ = text_.replace(' ;', ';')
+# remove space preceding a question mark
+text_ = text_.replace(' ?', '?')
+time.sleep(0.1)
 
-    # remove space preceding a colon
-    text_ = text_.replace(' :', ':')
+# remove space preceding an exclamation mark
+text_ = text_.replace(' !', '!')
+time.sleep(0.1)
 
-    # remove space preceding a question mark
-    text_ = text_.replace(' ?', '?')
+# remove space following an open bracket
+text_ = text_.replace('( ', '(')
+time.sleep(0.1)
 
-    # remove space preceding an exclamation mark
-    text_ = text_.replace(' !', '!')
+# remove space preceeding a close bracket
+text_ = text_.replace(' )', ')')
+time.sleep(0.1)
 
-    # remove space following an open bracket
-    text_ = text_.replace('( ', '(')
+# remove space preceding a hyphen
+text_ = text_.replace(' -', '-')
+time.sleep(0.1)
 
-    # remove space preceeding a close bracket
-    text_ = text_.replace(' )', ')')
+# remove space following a hyphen
+text_ = text_.replace('- ', '-')
+time.sleep(0.1)
 
-    # remove space preceding a hyphen
-    text_ = text_.replace(' -', '-')
+# remove caret
+text_ = text_.replace('^', '')
+time.sleep(0.1)
 
-    # remove space following a hyphen
-    text_ = text_.replace('- ', '-')
+# remove tilde
+text_ = text_.replace('~', ' ')
+time.sleep(0.1)
 
-    # remove caret
-    text_ = text_.replace('^', '')
+# remove space preceding new line
+text_ = text_.replace(' \n', '\n')
+time.sleep(0.1)
 
-    # remove tilde
-    text_ = text_.replace('~', ' ')
+# remove space following newline
+text_ = text_.replace('\n ', '\n')
+time.sleep(0.1)
 
-    # remove space preceding new line
-    text_ = text_.replace(' \n', '\n')
+# change three newlines to two newlines
+text_ = text_.replace('\n\n\n', '\n\n')
+time.sleep(0.1)
 
-    # remove space following newline
-    text_ = text_.replace('\n ', '\n')
+# remove space around mdash
+text_ = text_.replace('— ', '—')
+time.sleep(0.1)
 
-    # change three newlines to two newlines
-    text_ = text_.replace('\n\n\n', '\n\n')
+text_ = text_.replace(' —', '—')
+time.sleep(0.1)
 
-    # remove space around mdash
-    text_ = text_.replace('— ', '—')
-    text_ = text_.replace(' —', '—')
+# format two or more consecutive periods
+text_ = text_.replace('\.(? = \.', '.' + '&nbsp;')
+time.sleep(0.1)
 
-    # format two or more consecutive periods
-    text_ = text_.replace('\.(? = \.', '.' + '&nbsp;')
+# ocr scan error
+text_ = text_.replace(' w ', ' ')
+time.sleep(0.1)
 
-    # ocr scan error
-    text_ = text_.replace(' w ', ' ')
+# ligatures
+text_ = text_.replace('ﬂ', 'fl')
+time.sleep(0.1)
 
-    # ligatures
-    text_ = text_.replace('ﬂ', 'fl')
+# reduce two spaces to one
+text_ = text_.replace('  ', ' ')
+time.sleep(0.1)
 
-    # reduce two spaces to one
-    text_ = text_.replace('  ', ' ')
+# replace freefloating 1 to I
+text_ = text_.replace(' 1 ', ' I ')
+time.sleep(0.1)
 
-    # replace freefloating 1 to I
-    text_ = text_.replace(' 1 ', ' I ')
+# replace underscore with space
+text_ = text_.replace('_', ' ')
+time.sleep(0.1)
 
-    # replace underscore with space
-    text_ = text_.replace('_', ' ')
-
-    text_ = text_.replace('-\n', '')
-    time.sleep(0.1)
-
-    ## end text format
-    i = i + 1
+text_ = text_.replace('-\n', '')
+time.sleep(0.1)
 
 # place result to the clipboard
 clipboard.fill_clipboard(text_)
