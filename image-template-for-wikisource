@@ -1,0 +1,21 @@
+# [ alt + f ]	FI/FIS image template
+# 231009_0410 - alt-f-img.py
+
+open_ = '{{FIS'  # or '{{FI'
+nl_ = '\n'
+close_ = '}}'
+time.sleep(0.1)
+
+keyboard.send_keys(open_ + nl_)
+keyboard.send_keys(' | file         = missing' + nl_)
+keyboard.send_keys(' | width        = px' + nl_)
+keyboard.send_keys(' | float        = left/right' + nl_)
+keyboard.send_keys(' | margin-right = 7px' + nl_)
+keyboard.send_keys(' | margin-left  = 7px' + nl_)
+# keyboard.send_keys(' | cstyle     = margin-top:1.5em' + nl_)
+# keyboard.send_keys(' | tstyle     = padding-bottom:12px; font-variant:small-caps; font-size:85%' + nl_)
+# keyboard.send_keys(' | tstyle     = font-style:italic; font-size:80%' + nl_)
+keyboard.send_keys(' | talign       = justify' + nl_)
+keyboard.send_keys(' | caption     = ' + nl_)
+# keyboard.send_keys(' | top-caption = ' + nl_)
+keyboard.send_keys(close_ + nl_)
