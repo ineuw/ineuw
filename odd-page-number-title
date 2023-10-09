@@ -1,0 +1,46 @@
+# [ alt + super + o ]	odd number page title template - cursor stops at the right page number position
+# 231009_0401 - alt-super-o-page-title-odd.py
+
+clipboard.fill_clipboard('')
+time.sleep(0.1)
+
+open_ = "{{rh||''"
+close_ = "''|}}"
+cut_ = '<ctrl>+x'
+end_ = '<end>'
+left_ = '<left>'
+selectall_ = '<ctrl>+a'
+shifttab_ = '<shift>+<tab>'
+time.sleep(0.1)
+
+try:
+	keyboard.send_keys(cut_)
+	time.sleep(0.1)
+
+	text_ = clipboard.get_clipboard()
+	time.sleep(0.1)
+
+except:
+	time.sleep(0.1)
+
+else:
+	text_ = text_.strip()
+	time.sleep(0.1)
+
+	combined_ = open_ + text_ + close_
+	time.sleep(0.1)
+
+# jump over the barrier from main text area to the 'header' area
+keyboard.send_keys(shifttab_)
+time.sleep(0.1)
+
+# in header select all
+keyboard.send_keys(selectall_)
+time.sleep(0.1)
+
+# overwrite old contents
+keyboard.send_keys(combined_)
+time.sleep(0.1)
+
+# place cursor in the template where the right page number is added manually
+keyboard.send_keys(end_ + left_ * 2)
