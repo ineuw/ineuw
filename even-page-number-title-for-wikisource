@@ -1,0 +1,30 @@
+# [ alt + super + p ]	even number page title template - cursor stops at the left page number position
+# 231009_0416 - alt-super-e-page-title-even.py
+
+clipboard.fill_clipboard('')
+time.sleep(0.1)
+
+even_ = "{{rh||''History of Woman Suffrage.''|}}"
+selectall_ = '<ctrl>+a'
+paste_ = '<shift>+<insert>'
+home_ = '<home>'
+right_ = '<right>'
+delete_ = '<delete>'
+time.sleep(0.1)
+
+clipboard.fill_clipboard(even_)
+time.sleep(0.1)
+
+keyboard.send_keys(selectall_)
+time.sleep(0.1)
+
+keyboard.send_keys(delete_)
+time.sleep(0.1)
+
+keyboard.send_keys(paste_)
+time.sleep(0.1)
+
+keyboard.send_keys(home_)
+time.sleep(0.1)
+
+keyboard.send_keys(right_ * 5)
